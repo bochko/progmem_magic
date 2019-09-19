@@ -35,9 +35,7 @@
     progmag_ltop##unique; })
 #endif
 
-
-
 // This is the macro that should be called by the user
-#define PROGMAG_LTOP(string_input) 
+#define PROGMAG_LTOP(string_input) ({})
 
 #endif // PROGMAG_H_
