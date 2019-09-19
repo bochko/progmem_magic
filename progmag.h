@@ -17,4 +17,27 @@
 #endif
 #endif
 
+// To disable compiler output whenever a literal
+// is moved to program memory,
+// define CONFIG_SUPPRESS_PROGMAG_WARN
+#ifndef CONFIG_SUPPRESS_PROGMAG_WARN
+#define PROGMAG_WARN() _Pragma("message (\"Preprocessor action: String literal => PROGMEM\")")
+// This is the preprocessor that concatenates the unique variable name
+// for the static constant to be created with the literal.
+#define PROGMAG_GEN(string_input, unique) ({ \
+    static const char progmag_ltop##unique[] = string_input; \
+    PROGMAG_WARN(); \
+    progmag_ltop##unique; })
+#else
+// Version without compiler message output.
+#define PROGMAG_GEN(string_input, unique) ({ \
+    static const char progmag_ltop##unique[] = string_input; \
+    progmag_ltop##unique; })
+#endif
+
+
+
+// This is the macro that should be called by the user
+#define PROGMAG_LTOP(string_input) 
+
 #endif // PROGMAG_H_
