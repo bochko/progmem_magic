@@ -19,5 +19,5 @@ void main(int argc, char** argv)
 
 void carrier_function(char** carrier, const char* str_to_not_disappear)
 {
-    *carrier = str_to_not_disappear;
+    *carrier = (char*) str_to_not_disappear;
 }
