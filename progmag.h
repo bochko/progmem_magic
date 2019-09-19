@@ -1,5 +1,5 @@
-
-
+// Author: Boyan Atanasov
+// File: progmag.h
 #ifndef PROGMAG_H_
 #define PROGMAG_H_
 
